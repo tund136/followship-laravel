@@ -10,6 +10,7 @@
     <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
     <link href="{{asset('assets/font/css/all.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/jquery.scrollbar.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/axios-loader.css')}}" rel="stylesheet">
 
     @yield('style')
 </head>
@@ -20,10 +21,14 @@
 <script src="{{asset('assets/js/jquery-latest.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.js')}}"></script>
 <script src="{{asset('assets/js/jquery.scrollbar.js')}}"></script>
+<script src="{{asset('assets/js/axios.min.js')}}"></script>
+<script src="{{asset('assets/js/axios-loader.js')}}"></script>
 <script>
     $(document).ready(function () {
         $('.scrollbar-inner').scrollbar();
     });
+
+    loadProgressBar();
 </script>
 
 @yield('script')

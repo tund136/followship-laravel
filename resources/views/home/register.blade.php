@@ -7,7 +7,7 @@
             <div class="itemise_inner">
                 <div class="profile_section_inner login_section">
                     <h2>Create an Account</h2>
-                    <form>
+                    <form onsubmit="registerUser(event)">
                         <div class="form-row">
                             <label>Full Name</label>
                             <input type="text" class="form-control">
@@ -21,7 +21,7 @@
                             <input type="password" class="form-control">
                         </div>
                         <div class="form-row">
-                            <button class="form_login_action"> Continue </button>
+                            <button type="submit" class="form_login_action"> Continue </button>
                         </div>
                     </form>
                     <div class="aleady_note">
@@ -33,4 +33,15 @@
         </div>
     </div>
 </div>
+@stop
+
+@section('script')
+    <script>
+        function registerUser(event) {
+            event.preventDefault();
+            axios.get().then(data => {
+                console.log(data);
+            });
+        }
+    </script>
 @stop

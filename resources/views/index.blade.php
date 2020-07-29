@@ -17,14 +17,13 @@
                                 <input type="password" class="form-control">
                             </div>
                             <div class="form-row">
-                                <button class="form_login_action"> Continue </button>
+                                <button class="form_login_action"> Continue</button>
                             </div>
                         </form>
                         <div class="aleady_note">
                             Don't have an account ? <a href="{{route('register')}}">Create one here</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
