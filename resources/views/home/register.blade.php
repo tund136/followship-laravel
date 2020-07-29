@@ -10,19 +10,23 @@
                         <form id="regForm">
                             <div class="form-row">
                                 <label>Full Name</label>
-                                <input name="name" type="text" class="form-control">
+                                <input id="name-input" name="name" type="text" class="form-control">
+                                <div id="name-field"></div>
                             </div>
                             <div class="form-row">
                                 <label>Username</label>
-                                <input name="username" type="text" class="form-control">
+                                <input id="username-input" name="username" type="text" class="form-control">
+                                <div id="username-field"></div>
                             </div>
                             <div class="form-row">
                                 <label>Password</label>
-                                <input name="password" type="password" class="form-control">
+                                <input id="password-input" name="password" type="password" class="form-control">
+                                <div id="password-field"></div>
                             </div>
                             <div class="form-row">
                                 <label>Email</label>
-                                <input name="email" type="email" class="form-control">
+                                <input id="email-input" name="email" type="email" class="form-control">
+                                <div id="email-field"></div>
                             </div>
                             <div class="form-row">
                                 <button type="submit" class="form_login_action"> Continue</button>
@@ -46,8 +50,29 @@
             axios.post("{{route('registerPost')}}", data).then(data => {
                 console.log(data);
             }).catch(error => {
-                console.log(error);
+                printErrorMsg(error.response.data.error);
             });
         });
+
+        function printErrorMsg(msg) {
+            if (msg != undefined) {
+                var obj = Object.keys(msg);
+
+                processError(msg, obj, 'name', '#name-input', '#name-field');
+                processError(msg, obj, 'email', '#email-input', '#email-field');
+                processError(msg, obj, 'username', '#username-input', '#username-field');
+                processError(msg, obj, 'password', '#password-input', '#password-field');
+            }
+        }
+
+        function processError(msg, obj, name, input, validation_field) {
+            if (jQuery.inArray(name, obj) == '-1') {
+                $(input).removeClass('has-error');
+                $(validation_field).html('');
+            } else {
+                $(input).addClass('has-error');
+                $(validation_field).html('<div class="error_input">' + msg[name][0] + '</div>');
+            }
+        }
     </script>
 @stop
