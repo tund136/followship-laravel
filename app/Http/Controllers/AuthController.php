@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller {
@@ -32,10 +33,10 @@ class AuthController extends Controller {
             $data->username = $request->username;
             $data->password = Hash::make($request->password);
             $data->email = $request->email;
-
+            Session::flash('reg_success', 'Please login to continue!');
             $data->save();
 
-            return response()->json(['success' => 'Account created successfully!', 'redirect_link' => route('home')]);
+            return response()->json(['success' => 'Account created successfully! Please do not leave the page which would automatically refresh.', 'redirect_link' => route('home')]);
         }
     }
 }

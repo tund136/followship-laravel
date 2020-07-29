@@ -7,7 +7,7 @@
                 <div class="itemise_inner">
                     <div class="profile_section_inner login_section">
                         <h2>Create an Account</h2>
-                        <form id="regForm">
+                        <form id="regForm" autocomplete="off">
                             <div class="form-row">
                                 <label>Full Name</label>
                                 <input id="name-input" name="name" type="text" class="form-control">
@@ -48,7 +48,10 @@
             event.preventDefault();
             let data = $(this).serialize();
             axios.post("{{route('registerPost')}}", data).then(data => {
-                console.log(data);
+                Notiflix.Report.Success('Notiflix Success', data.data.success, 'OK!');
+                setTimeout(function () {
+                    window.location = data.data.redirect_link;
+                }, 3000);
             }).catch(error => {
                 printErrorMsg(error.response.data.error);
             });

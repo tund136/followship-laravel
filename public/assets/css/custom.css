@@ -83,10 +83,8 @@ button:focus {
 }
 
 .followed.followingship-status {
-    background:
-        #3498db;
-    color:
-        #fff;
+    background: #3498db;
+    color: #fff;
 }
 
 
@@ -164,7 +162,7 @@ body {
     border: 0;
     border-radius: 3px;
     background: #2ecc71;
-    color:#fff;
+    color: #fff;
     font-size: 14px;
 }
 
@@ -199,4 +197,12 @@ body {
     margin-top: 10px;
     color: red;
     font-size: 10px;
+}
+
+.success_note {
+    margin-bottom: 20px;
+    background: #3c40c6;
+    padding: 7px 10px;
+    font-size: 13px;
+    border-radius: 2px;
 }

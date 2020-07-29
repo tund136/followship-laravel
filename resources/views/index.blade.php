@@ -7,7 +7,13 @@
                 <div class="itemise_inner">
                     <div class="profile_section_inner login_section">
                         <h2>Login to continue</h2>
+                        @if(\Illuminate\Support\Facades\Session::has('reg_success'))
+                            <div class="success_note">
+                                {{\Illuminate\Support\Facades\Session::get('reg_success')}}
+                            </div>
+                        @endif
                         <form>
+                            <div class="row"></div>
                             <div class="form-row">
                                 <label>Username</label>
                                 <input name="username" type="text" class="form-control">
