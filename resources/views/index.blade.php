@@ -10,14 +10,14 @@
                         <form>
                             <div class="form-row">
                                 <label>Username</label>
-                                <input type="text" class="form-control">
+                                <input name="username" type="text" class="form-control">
                             </div>
                             <div class="form-row">
                                 <label>Password</label>
-                                <input type="password" class="form-control">
+                                <input name="password" type="password" class="form-control">
                             </div>
                             <div class="form-row">
-                                <button class="form_login_action"> Continue</button>
+                                <button type="submit" class="form_login_action"> Continue</button>
                             </div>
                         </form>
                         <div class="aleady_note">
