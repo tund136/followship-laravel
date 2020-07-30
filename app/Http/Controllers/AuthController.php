@@ -39,4 +39,19 @@ class AuthController extends Controller {
             return response()->json(['success' => 'Account created successfully! Please do not leave the page which would automatically refresh.', 'redirect_link' => route('home')]);
         }
     }
+
+    public function loginPost(Request $request) {
+        $rules = ['username' => 'required|string|max:120', 'password' => 'required|string|max:120'];
+
+        $messages = ['username.required' => 'This field is required.', 'username.string' => 'This field is invalid.', 'username.max' => 'This field is too long.',
+
+            'password.required' => 'This field is required.', 'password.string' => 'This field is invalid.', 'password.max' => 'This field is too long.'];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 422);
+        } else {
+
+        }
+    }
 }

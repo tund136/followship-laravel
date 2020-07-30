@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', 'AuthController@home')->name('home');
 
-Route::get('/register', 'AuthController@register')->name('register');
-Route::post('/register', 'AuthController@registerPost')->name('registerPost');
+Route::middleware('guest')->group(function () {
+    Route::get('/register', 'AuthController@register')->name('register');
+    Route::post('/register', 'AuthController@registerPost')->name('registerPost');
+    Route::post('/login', 'AuthController@loginPost')->name('loginPost');
+});
+
+Route::middleware('auth')->group(function () {
+
+});

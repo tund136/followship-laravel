@@ -48,7 +48,7 @@
             event.preventDefault();
             let data = $(this).serialize();
             axios.post("{{route('registerPost')}}", data).then(data => {
-                Notiflix.Report.Success('Notiflix Success', data.data.success, 'OK!');
+                Notiflix.Report.Success('Registration Success!', data.data.success, 'OK!');
                 setTimeout(function () {
                     window.location = data.data.redirect_link;
                 }, 3000);

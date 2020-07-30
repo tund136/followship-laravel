@@ -112,6 +112,7 @@ body {
     background: #fff;
     border-radius: 3px;
     margin-top: 50px;
+    position: relative;
 }
 
 .user_profile_name.text-center h2 {
@@ -206,3 +207,20 @@ body {
     font-size: 13px;
     border-radius: 2px;
 }
+
+.logout_action {
+    display: inline-block;
+    width: 100px;
+    height: 28px;
+    background: #3c40c6;
+    border-radius: 3px;
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 14px;
+    padding-top: 3px;
+}
+
+
